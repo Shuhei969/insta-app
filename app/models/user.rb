@@ -25,4 +25,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :name, uniqueness: true
+
+  has_one :profile, dependent: :destroy
 end
