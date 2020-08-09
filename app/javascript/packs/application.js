@@ -38,8 +38,8 @@ $(document).on("DOMContentLoaded", function () {
     var def = $.Deferred();
     reader.onload = function (e) {
       // 画像を表示
-      $("#profile-avatar-preview").empty();
-      $("#profile-avatar-preview").append(img);
+      $(".profile-avatar-preview").empty();
+      $(".profile-avatar-preview").append(img);
       img.src = e.target.result;
       def.resolve(img);
     };

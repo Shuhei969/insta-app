@@ -8,9 +8,11 @@
         %h2= "Changes Icon"
       .header-flex-right
         = f.submit 'OK', class: 'header-submit'
+
+
     .profile
-      .profile-avatar-image
+      .profile-avatar
         = f.label :avatar do
           = f.file_field :avatar, class: 'none'
-          #profile-avatar-preview
+          .profile-avatar-preview
             = image_tag 'default_avatar.png'

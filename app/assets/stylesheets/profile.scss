@@ -1,8 +1,12 @@
 .profile {
-  &-avatar-image {
+
+  &-avatar {
     width: 100%;
     text-align: center;
     margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    position: relative;
     img{
       width: 200px;
       height: 200px;
@@ -14,9 +18,33 @@
         opacity: 0.7;
       }
     }
+    &-preview {
+      width: 200px;
+      height: 200px;
+    }
+    &-layer {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #00000081;
+      z-index: 1;
+      cursor: pointer;
+      &-icon {
+        position: relative;
+        img {
+          position: absolute;
+          width: 64px;
+          height: 64px;
+          border: none;
+          border-radius: 0;
+          left: 34%;
+          top: 68px;
+        }
+      }
+    }
   }
-
-  .none {
-    display: none;
-  }
+}
+.none {
+  display: none;
 }
