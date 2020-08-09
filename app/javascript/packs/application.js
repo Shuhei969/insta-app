@@ -4,9 +4,10 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
 
 import $ from 'jquery'
 import axios from 'axios'
@@ -19,3 +20,30 @@ axios.defaults.headers.common[`X-CSRF-Token`] = csrfToken()
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(document).on("DOMContentLoaded", function () {
+  $("#profile_avatar").on("change", function (e) {
+    var files = e.target.files; // 新たにアタッチした画像ファイル
+    var d = new $.Deferred().resolve(); //defferを作成、ここで定義されたアクションが解決(resolve)するとこのfunctionから抜けだす？
+    $.each(files, function (i, file) {
+      d = d.then(function () {
+        return previewImage(file);
+      });
+    });
+  });
+
+  var previewImage = function (imageFile) {
+    var reader = new FileReader();
+    var img = new Image();
+    var def = $.Deferred();
+    reader.onload = function (e) {
+      // 画像を表示
+      $("#profile-avatar-preview").empty();
+      $("#profile-avatar-preview").append(img);
+      img.src = e.target.result;
+      def.resolve(img);
+    };
+    reader.readAsDataURL(imageFile);
+    return def.promise();
+  };
+});
