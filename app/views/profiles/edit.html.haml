@@ -1,0 +1,20 @@
+.container
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    .header
+      .header-flex-left
+        =link_to :back do
+          =image_tag 'page-back.png'
+      .header-flex-center
+        %h2= "Changes Icon"
+      .header-flex-right
+        = f.submit 'OK', class: 'header-submit'
+    
+    .profile
+      .profile-avatar-image
+        = f.label :avatar do
+          = f.file_field :avatar, class: 'none'
+          #profile-avatar-preview
+            - if current_user.profile.avatar.attached?
+              = image_tag current_user.profile.avatar.variant(resize_to_fill: [200, 200])
+            - else 
+              = image_tag 'default_avatar.png'
