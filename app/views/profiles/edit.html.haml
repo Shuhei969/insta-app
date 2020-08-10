@@ -6,7 +6,7 @@
           %h2= 'Cancel'  
       .header-flex-center
         %h2= "Changes Icon"
-      .header-flex-right
+      .header-flex-right.none
         = f.submit 'OK', class: 'header-submit'
 
     .profile
@@ -21,3 +21,5 @@
               = image_tag current_user.profile.avatar.variant(resize_to_fill: [200, 200])
             - else
               = image_tag 'default_avatar.png'
+
+= javascript_pack_tag 'profile'

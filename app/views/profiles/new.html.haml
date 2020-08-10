@@ -6,7 +6,7 @@
           =image_tag 'page-back.png'
       .header-flex-center
         %h2= "Changes Icon"
-      .header-flex-right
+      .header-flex-right.none
         = f.submit 'OK', class: 'header-submit'
 
 
@@ -14,5 +14,10 @@
       .profile-avatar
         = f.label :avatar do
           = f.file_field :avatar, class: 'none'
+          .profile-avatar-layer
+            .profile-avatar-layer-icon
+              = image_tag 'camera-icon.png'
           .profile-avatar-preview
             = image_tag 'default_avatar.png'
+
+= javascript_pack_tag 'profile'
