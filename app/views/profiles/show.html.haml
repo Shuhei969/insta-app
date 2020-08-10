@@ -1,0 +1,17 @@
+.container  
+  .header
+    .header-flex-left
+      =link_to :back do
+        =image_tag 'page-back.png'
+    .header-flex-center
+      %h2= current_user.name
+
+
+  .profile
+    .profile-avatar
+      - if current_user.profile.present?
+        =link_to edit_profile_path do
+          = image_tag current_user.profile.avatar.variant(resize_to_fill: [200, 200])
+      - else 
+        =link_to new_profile_path do
+          = image_tag 'default_avatar.png'

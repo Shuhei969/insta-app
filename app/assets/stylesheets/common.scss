@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 40px;
+  &-flex {
+    &-left {
+      width: 20%;
+      text-align: left;
+    }
+    &-center {
+      width: 60%;
+      text-align: center;
+      font-size: 16px;
+    }
+    &-right {
+      width: 20%;
+      text-align: right;
+    }
+  }
+  
+  a {
+    line-height: 40px;
+    display: inline-block;
+
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    line-height: 40px;
+    display: block;
+  }
+
+  &-submit {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border: none;
+    &:hover {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+  }
+}
